@@ -18,6 +18,9 @@ class PersonalController extends BaseController{
   public function getEditar(){
     echo "estoy editandi...";
   }
+  public function getEliminar(){
+    echo "estoy editandi...";
+  }
   
 }
 
