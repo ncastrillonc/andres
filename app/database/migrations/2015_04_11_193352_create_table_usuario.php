@@ -16,12 +16,25 @@ class CreateTableUsuario extends Migration {
 			$table->string('password');    
       $table->timestamps();    
 		});
+    
 		Schema::create('publicacion', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nombre');
-			$table->string('correo');      
-			$table->string('password');    
+			$table->text('publicacion');
+			$table->boolean('tipo'); 
+      $table->integer('usuario_id')->unsigned();
+      $table->integer('padre')->unsigned()->nullable();
+      $table->foreign('usuario_id')->references('id')->on('usuario');
+      $table->foreign('padre')->references('id')->on('publicacion');
+      $table->timestamps();    
+		});
+		Schema::create('me_gusta', function(Blueprint $table)
+		{
+			$table->increments('id');
+      $table->integer('publicacion_id')->unsigned();
+      $table->integer('usuario_id')->unsigned();
+      $table->foreign('publicacion_id')->references('id')->on('publicacion');
+      $table->foreign('usuario_id')->references('id')->on('usuario');
       $table->timestamps();    
 		});
 	}
