@@ -14,7 +14,8 @@ class CreateTableUsuario extends Migration {
 			$table->string('nombre');
 			$table->string('correo');      
 			$table->string('password');    
-      $table->timestamps();    
+      $table->timestamps();  
+      $table->rememberToken(); 
 		});
     
 		Schema::create('publicacion', function(Blueprint $table)
@@ -37,6 +38,21 @@ class CreateTableUsuario extends Migration {
       $table->foreign('usuario_id')->references('id')->on('usuario');
       $table->timestamps();    
 		});
+    
+    
+    DB::table('usuario')
+            ->insert([
+                'nombre' => 'Andrés',
+                'correo' => 'andr3s2@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+    DB::table('usuario')
+            ->insert([
+                'nombre' => 'Luis',
+                'correo' => 'luismec90@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+            
 	}
 
 	/**

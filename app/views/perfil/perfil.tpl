@@ -1,5 +1,5 @@
 {capture assign="left"}  
-  
+  {Auth::check()}
   <center><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/000/29a/33c/02bf658.jpg" width="150" height="150"></center>
   <div class="well"> 
     Información
