@@ -10,8 +10,10 @@ Route::get('/', function()
 });
 Route::get('/profile', array('before'=>'auth', function()
 { 
+  $publicaciones = Publicacion::orderBy('id','desc')->get();
 	return View::make('perfil.perfil')
-          ->with("nombre", Auth::user()->nombre);
+          ->with("nombre", Auth::user()->nombre)
+          ->with("publicaciones", $publicaciones);
 }));
 Route::post('/loguear', function(){
     $email = Input::get('correo');
@@ -30,3 +32,4 @@ Route::get('/logout', function(){
 
 Route::controller('personal','PersonalController');
 Route::controller('clase','Clase2Controller');
+Route::controller('publicacion','PublicacionController');
