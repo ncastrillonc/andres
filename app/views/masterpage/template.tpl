@@ -8,6 +8,9 @@
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
         {HTML::script('/libs/typeahead/typeahead.min.js')}
         
+        <script>
+          var baseUrl = '{url('/')}';
+        </script>
         {HTML::script('assets/js/app.js')}
         
     </head>

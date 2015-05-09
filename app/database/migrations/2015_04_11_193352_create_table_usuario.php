@@ -24,8 +24,10 @@ class CreateTableUsuario extends Migration {
 			$table->text('publicacion');
 			$table->boolean('tipo'); 
       $table->integer('usuario_id')->unsigned();
+      $table->integer('receptor')->unsigned();
       $table->integer('padre')->unsigned()->nullable();
       $table->foreign('usuario_id')->references('id')->on('usuario');
+      $table->foreign('receptor')->references('id')->on('usuario');
       $table->foreign('padre')->references('id')->on('publicacion');
       $table->timestamps();    
 		});
@@ -50,6 +52,42 @@ class CreateTableUsuario extends Migration {
             ->insert([
                 'nombre' => 'Luis',
                 'correo' => 'luismec90@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+        DB::table('usuario')
+            ->insert([
+                'nombre' => 'Luis',
+                'correo' => 'luismec90@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+            DB::table('usuario')
+            ->insert([
+                'nombre' => 'Luis',
+                'correo' => 'luismec90@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+                DB::table('usuario')
+            ->insert([
+                'nombre' => 'Daniel',
+                'correo' => 'daniel@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+                    DB::table('usuario')
+            ->insert([
+                'nombre' => 'Pedro',
+                'correo' => 'pedro@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+                        DB::table('usuario')
+            ->insert([
+                'nombre' => 'Julian',
+                'correo' => 'julian@gmail.com',
+                'password' => Hash::make('123')
+            ]);
+                            DB::table('usuario')
+            ->insert([
+                'nombre' => 'Ximena',
+                'correo' => 'ximena@gmail.com',
                 'password' => Hash::make('123')
             ]);
             

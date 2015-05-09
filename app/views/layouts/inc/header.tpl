@@ -20,7 +20,7 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"> {$nombre}</a></li>
+        <li><a href="#"> {Auth::user()->nombre}</a></li>
         <li>
           <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> </a>
           </li>

@@ -9,4 +9,10 @@ class Publicacion extends Eloquent{
     return date('Y-m-d h:i:s');
   }
     
+  
+  public static function likes($id){
+    return Megusta::where('publicacion_id', $id)
+            ->count();
+    
+  }
 }
