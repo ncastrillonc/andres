@@ -45,11 +45,13 @@
          <span class="glyphicon glyphicon-thumbs-up"></span> <span id='t-me-gusta-{$publicacion->id}' style="cursor:pointer" onclick="fb.meGusta({$publicacion->id})">{$publicacion->leGustaA(Auth::user()->id)}</span> |
          <span class="glyphicon glyphicon-thumbs-up"></span> <span id="n-me-gusta-{$publicacion->id}">{Publicacion::likes($publicacion->id)}</span> personas les gusta esto 
          
-         <div id="comentarios-{$publicacion->id}">
-           <div style="font-size: 10px; padding: 3px;" class="well well-sm col-sm-7">Esto es un comentario</div>
+         <div id="comentarios-{$publicacion->id}">           
+           {foreach $publicacion->comentarios() as $comentario}
+             <div style="margin-bottom: 1px; font-size: 10px; padding: 3px;" class="well well-sm col-sm-7"><img src='{url('/assets/img/profile')}/{$comentario->usuario_id}.jpg' width='15' height="15"> {$comentario->publicacion}</div>
+            {/foreach} 
          </div>
-         <br>
-         <br>
+         <div style='clear: both' ></div>
+        
          <textarea id="comentario-{$publicacion->id}" rows="1" placeholder="Escribe tu comentario ... " class="col-sm-6"></textarea>
          <button class="btn btn-success btn-sm" onclick="fb.comentar({$publicacion->id})">Comentar</button>
          

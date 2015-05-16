@@ -6,6 +6,7 @@ class Usuario extends Eloquent {
 
   public function misPublicaciones() {
     return Publicacion::where('receptor', $this->id)
+            ->where('tipo',0)
             ->orderBy('id', 'desc')
             ->get();
   }

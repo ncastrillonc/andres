@@ -22,4 +22,11 @@ class Publicacion extends Eloquent{
             ->where('usuario_id', $usuario)
             ->count() > 0? 'Ya no me gusta' : 'Me gusta';
   }
+  
+  public function comentarios(){
+      return Publicacion::where('padre', $this->id)
+              ->where('tipo',1)
+              ->get();
+    
+  }
 }

@@ -10,11 +10,28 @@ class PublicacionController extends BaseController {
         'receptor' => Input::get('receptor')
     ];
     DB::table('publicacion')->insert($publicacion);
-    return Redirect::to("/profile");
+    
+    return Redirect::to("/profile/ver/".Input::get('receptor'));
   }
 
   public function postComentar() {
-    
+    if(Request::ajax()){
+      
+      $publicacion = Publicacion::find(Input::get('publicacion'));
+      
+      $comentario = [
+          'publicacion' => Input::get('comentario'),
+          'tipo' => 1,
+          'usuario_id' => Auth::user()->id,
+          'receptor' => $publicacion->receptor,
+          'padre' => $publicacion->id
+      ];
+      
+      DB::table('publicacion')->insert($comentario);     
+      
+      return Response::json($comentario);
+      
+    }
   }
 
   public function postMeGusta() {
