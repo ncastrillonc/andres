@@ -27,8 +27,9 @@ var fb = {
           comentario: comentario.val()
         },
         success: function(response) {
-          var div = "<div style='margin-bottom: 1px; font-size: 10px; padding: 3px;' class='well well-sm col-sm-7'><img src='"+baseUrl +"/assets/img/profile/"+ response.usuario_id +".jpg' width='15' height='15'>"+ response.publicacion +"</div>";
-          $("#comentarios-"+id).append(div);
+          var div = "<div style='margin-bottom: 1px; font-size: 10px; padding: 3px;' class='well well-sm col-sm-7'>";
+         var img = "<img src='"+baseUrl +"/assets/img/profile/"+ response.usuario_id +".jpg' width='15' height='15'>";
+          $("#comentarios-"+id).append(div + img + response.publicacion + "</div>");
           comentario.val(""); 
         }
       });
