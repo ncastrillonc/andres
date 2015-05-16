@@ -42,8 +42,8 @@
        </div>
        <div>
          <span class="glyphicon glyphicon-comment"></span> <span>Comentar</span> |
-         <span class="glyphicon glyphicon-thumbs-up"></span> <span onclick="fb.meGusta({$publicacion->id})">Me gusta</span> |
-         <span class="glyphicon glyphicon-thumbs-up"></span> {Publicacion::likes($publicacion->id)} personas les gusta esto 
+         <span class="glyphicon glyphicon-thumbs-up"></span> <span id='t-me-gusta-{$publicacion->id}' style="cursor:pointer" onclick="fb.meGusta({$publicacion->id})">{$publicacion->leGustaA(Auth::user()->id)}</span> |
+         <span class="glyphicon glyphicon-thumbs-up"></span> <span id="n-me-gusta-{$publicacion->id}">{Publicacion::likes($publicacion->id)}</span> personas les gusta esto 
          
          <div id="comentarios-{$publicacion->id}">
            <div style="font-size: 10px; padding: 3px;" class="well well-sm col-sm-7">Esto es un comentario</div>

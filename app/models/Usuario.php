@@ -16,6 +16,17 @@ class Usuario extends Eloquent {
             ->get();
   }
   
+  public function leGustaPublicacion($publicacion){
+    return Megusta::where('usuario_id', $this->id)
+            ->where('publicacion_id', $publicacion)
+            ->count()>0;
+  }
   
+  public function yaNoLeGustaPublicacion($publicacion){
+    Megusta::where('usuario_id',$this->id)
+            ->where('publicacion_id', $publicacion)
+            ->delete();
+  }
 
 }
+

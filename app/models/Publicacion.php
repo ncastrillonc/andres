@@ -15,4 +15,11 @@ class Publicacion extends Eloquent{
             ->count();
     
   }
+  
+  
+  public function leGustaA($usuario){    
+    return Megusta::where('publicacion_id', $this->id)
+            ->where('usuario_id', $usuario)
+            ->count() > 0? 'Ya no me gusta' : 'Me gusta';
+  }
 }

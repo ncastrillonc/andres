@@ -12,7 +12,9 @@ var fb = {
             publicacion : id            
         },
         success: function(response){
-            console.log(response);
+          console.log(response);
+           $("#n-me-gusta-"+id).text(response.nlikes);
+          $("#t-me-gusta-"+id).text(response.type==-1?"Me gusta" : "Ya no me gusta");
         }
       });
      
